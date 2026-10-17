@@ -208,8 +208,12 @@ textarea.rekap{font:400 13px/1.55 var(--font-mono);min-height:260px}
 .badge{display:inline-block;font:500 11px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--accent-wash);color:var(--accent);margin-right:8px}
 
 /* Pengeluaran */
+<<<<<<< HEAD
 .panel#panel-keluar,.panel#panel-masuk{max-width:820px}
 .exp .in{color:var(--in)}
+=======
+.panel#panel-keluar{max-width:820px}
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
 .xform{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:end}
 .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
 table.exp{border-collapse:collapse;width:100%;min-width:440px}
@@ -277,7 +281,10 @@ table.exp{border-collapse:collapse;width:100%;min-width:440px}
   <nav class="tabs" role="tablist" aria-label="Bagian kas">
     <button class="tab" role="tab" id="tab-iuran" data-tab="iuran" aria-selected="true" aria-controls="panel-iuran" type="button">Iuran</button>
     <button class="tab" role="tab" id="tab-keluar" data-tab="keluar" aria-selected="false" aria-controls="panel-keluar" type="button">Pengeluaran</button>
+<<<<<<< HEAD
     <button class="tab" role="tab" id="tab-masuk" data-tab="masuk" aria-selected="false" aria-controls="panel-masuk" type="button">Pemasukan</button>
+=======
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
     <button class="tab" role="tab" id="tab-riwayat" data-tab="riwayat" aria-selected="false" aria-controls="panel-riwayat" type="button">Riwayat</button>
     <button class="tab" role="tab" id="tab-atur" data-tab="atur" aria-selected="false" aria-controls="panel-atur" type="button" hidden>Pengaturan</button>
   </nav>
@@ -305,6 +312,7 @@ table.exp{border-collapse:collapse;width:100%;min-width:440px}
     <div id="keluar-list"></div>
   </section>
 
+<<<<<<< HEAD
   <section class="panel" id="panel-masuk" role="tabpanel" aria-labelledby="tab-masuk" hidden>
     <p class="sum" id="masuk-sum"></p>
     <form class="xform" id="masuk-form" hidden>
@@ -316,6 +324,8 @@ table.exp{border-collapse:collapse;width:100%;min-width:440px}
     <div id="masuk-list"></div>
   </section>
 
+=======
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
   <section class="panel" id="panel-riwayat" role="tabpanel" aria-labelledby="tab-riwayat" hidden>
     <div class="tools" id="riwayat-tools" hidden>
       <div class="seg" role="group" aria-label="Saring transaksi">
@@ -561,7 +571,11 @@ function renderTabs(){
   $('#tab-atur').hidden = !state.canWrite;
   if (state.tab === 'atur' && !state.canWrite) state.tab = 'iuran';
   $$('.tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === state.tab)));
+<<<<<<< HEAD
   ['iuran', 'keluar', 'masuk', 'riwayat', 'atur'].forEach(k => { $('#panel-' + k).hidden = state.tab !== k; });
+=======
+  ['iuran', 'keluar', 'riwayat', 'atur'].forEach(k => { $('#panel-' + k).hidden = state.tab !== k; });
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
 }
 
 /* ---------- tabel iuran ---------- */
@@ -873,6 +887,7 @@ function renderKeluar(d){
     h('tfoot', null, h('tr', null, h('td', { colspan: '2' }, 'Total'), h('td', { class: 'num mono out' }, rp(total)), w ? h('td') : null)))));
 }
 
+<<<<<<< HEAD
 function renderMasuk(d){
   const form = $('#masuk-form'), list = $('#masuk-list'), sum = $('#masuk-sum');
   list.replaceChildren();
@@ -908,6 +923,8 @@ function renderMasuk(d){
     h('tfoot', null, h('tr', null, h('td', { colspan: '2' }, 'Total'), h('td', { class: 'num mono in' }, '+' + rp(total)), w ? h('td') : null)))));
 }
 
+=======
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
 function renderAtur(){
   if (!state.canWrite) return;
   const a = $('#set-iuran'), b = $('#set-mulai');
@@ -917,7 +934,11 @@ function renderAtur(){
 
 function renderAll(){
   const d = derive();
+<<<<<<< HEAD
   renderRole(d); renderHero(d); renderTabs(); renderIuran(d); renderKeluar(d); renderMasuk(d); renderRiwayat(d); renderAtur();
+=======
+  renderRole(d); renderHero(d); renderTabs(); renderIuran(d); renderKeluar(d); renderRiwayat(d); renderAtur();
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
   refreshSheet();
 }
 function schedule(){
@@ -998,6 +1019,7 @@ async function addExpense(){
   if (ok){ $('#x-ket').value = ''; $('#x-jumlah').value = ''; $('#x-ket').focus(); }
 }
 
+<<<<<<< HEAD
 async function addIncome(){
   const jumlah = parseAmount($('#m-jumlah').value);
   const tanggal = $('#m-tanggal').value;
@@ -1009,6 +1031,8 @@ async function addIncome(){
   if (ok){ $('#m-ket').value = ''; $('#m-jumlah').value = ''; $('#m-ket').focus(); }
 }
 
+=======
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
 async function saveTxEdit(id){
   const jumlah = parseAmount($('#f-jumlah').value);
   const tanggal = $('#f-tanggal').value;
@@ -1016,14 +1040,22 @@ async function saveTxEdit(id){
   if (!jumlah){ toast('Isi jumlah lebih dari 0.'); return; }
   if (!parseISO(tanggal)){ toast('Pilih tanggal pengeluaran.'); return; }
   if (!catatan){ toast('Isi keterangan pengeluaran.'); return; }
+<<<<<<< HEAD
   const lain = (state.tx.find(x => x.id === id) || {}).jenis === 'lain';
   const ok = await write(() => updateDoc(doc(db, 'transaksi', id), { jumlah, tanggal, catatan }), lain ? 'Pemasukan diperbarui.' : 'Pengeluaran diperbarui.');
+=======
+  const ok = await write(() => updateDoc(doc(db, 'transaksi', id), { jumlah, tanggal, catatan }), 'Pengeluaran diperbarui.');
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
   if (ok) closeSheet();
 }
 
 async function deleteTx(id){
+<<<<<<< HEAD
   const lain = (state.tx.find(x => x.id === id) || {}).jenis === 'lain';
   const ok = await write(() => deleteDoc(doc(db, 'transaksi', id)), lain ? 'Pemasukan dihapus.' : 'Pengeluaran dihapus.');
+=======
+  const ok = await write(() => deleteDoc(doc(db, 'transaksi', id)), 'Pengeluaran dihapus.');
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
   if (ok) closeSheet();
 }
 
@@ -1161,6 +1193,7 @@ function buildTambah(body){
 function buildTx(body, id){
   const t = state.tx.find(x => x.id === id);
   if (!t){ state.sheet = null; return; }
+<<<<<<< HEAD
   const lain = t.jenis === 'lain';
   const nm = lain ? 'pemasukan' : 'pengeluaran';
   $('#sheet-title').textContent = 'Ubah ' + nm;
@@ -1168,6 +1201,13 @@ function buildTx(body, id){
   const showDel = () => delBox.replaceChildren(h('button', { class: 'btn btn-danger btn-small', type: 'button', onclick: showConfirm }, 'Hapus ' + nm));
   const showConfirm = () => delBox.replaceChildren(
     h('p', { class: 'hint' }, lain ? 'Saldo kas berkurang ' + rp(t.jumlah) + '. Hapus catatan ini?' : 'Saldo kas bertambah ' + rp(t.jumlah) + ' kembali. Hapus catatan ini?'),
+=======
+  $('#sheet-title').textContent = 'Ubah pengeluaran';
+  const delBox = h('div');
+  const showDel = () => delBox.replaceChildren(h('button', { class: 'btn btn-danger btn-small', type: 'button', onclick: showConfirm }, 'Hapus pengeluaran'));
+  const showConfirm = () => delBox.replaceChildren(
+    h('p', { class: 'hint' }, 'Saldo kas bertambah ' + rp(t.jumlah) + ' kembali. Hapus catatan ini?'),
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
     h('div', { class: 'row-wrap' },
       h('button', { class: 'btn btn-danger btn-small', type: 'button', 'data-write': '', onclick: () => deleteTx(id) }, 'Ya, hapus'),
       h('button', { class: 'btn btn-small', type: 'button', onclick: showDel }, 'Batal')));
@@ -1240,9 +1280,12 @@ function bindStatic(){
   $('#btn-siswa').addEventListener('click', () => { $('#land-msg').hidden = true; setMode('siswa'); });
   $('#btn-ganti').addEventListener('click', () => setMode(null));
   $('#keluar-form').addEventListener('submit', e => { e.preventDefault(); addExpense(); });
+<<<<<<< HEAD
   $('#masuk-form').addEventListener('submit', e => { e.preventDefault(); addIncome(); });
   const mj = $('#m-jumlah');
   mj.addEventListener('input', () => { mj.value = fnum(parseAmount(mj.value)); });
+=======
+>>>>>>> 410312f3ae98c4b07f7123765c7ccbf9fc934dbb
   const xj = $('#x-jumlah');
   xj.addEventListener('input', () => { xj.value = fnum(parseAmount(xj.value)); });
   $('#btn-rekap').addEventListener('click', () => openSheet('rekap'));
